@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый учитель{% endblock %}
+
+{% block body %}
+    <h1>Добавить нового учителя</h1>
+
+    {{ include('steacher/_form.html.twig') }}
+
+    <a href="{{ path('app_steacher_index') }}">вернуться</a>
+{% endblock %}

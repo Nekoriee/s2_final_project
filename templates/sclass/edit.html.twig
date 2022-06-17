@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать класс{% endblock %}
+
+{% block body %}
+    <h1>Редактировать класс</h1>
+
+    {{ include('sclass/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_sclass_index') }}">вернуться</a>
+
+    {{ include('sclass/_delete_form.html.twig') }}
+{% endblock %}

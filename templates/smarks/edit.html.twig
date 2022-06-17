@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать оценку{% endblock %}
+
+{% block body %}
+    <h1>Редактировать оценку</h1>
+
+    {{ include('smarks/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_smarks_index') }}">вернуться</a>
+
+    {{ include('smarks/_delete_form.html.twig') }}
+{% endblock %}

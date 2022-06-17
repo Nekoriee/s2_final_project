@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Классы{% endblock %}
+
+{% block body %}
+    <h1>Классы</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sclass in sclasses %}
+            <tr>
+                <td>{{ sclass.id }}</td>
+                <td>{{ sclass.name }}</td>
+                <td>
+                    <a href="{{ path('app_sclass_show', {'id': sclass.id}) }}">показать</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_sclass_edit', {'id': sclass.id}) }}">редактировать</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">записи не найдены</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_sclass_new') }}">Добавить</a>
+    {% endif %}
+{% endblock %}

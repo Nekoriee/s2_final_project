@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Учителя{% endblock %}
+
+{% block body %}
+    <h1>Учителя</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ФИО</th>
+                <th>действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for steacher in steachers %}
+            <tr>
+                <td>{{ steacher.id }}</td>
+                <td>{{ steacher.fio }}</td>
+                <td>
+                    <a href="{{ path('app_steacher_show', {'id': steacher.id}) }}">показать</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_steacher_edit', {'id': steacher.id}) }}">редактировать</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">записи не найдены</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_steacher_new') }}">Добавить</a>
+    {% endif %}
+{% endblock %}

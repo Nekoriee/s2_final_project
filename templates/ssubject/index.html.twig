@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Предметы{% endblock %}
+
+{% block body %}
+    <h1>Предметы</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ssubject in ssubjects %}
+            <tr>
+                <td>{{ ssubject.id }}</td>
+                <td>{{ ssubject.name }}</td>
+                <td>
+                    <a href="{{ path('app_ssubject_show', {'id': ssubject.id}) }}">показать</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_ssubject_edit', {'id': ssubject.id}) }}">редактировать</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">записи не найдены</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_ssubject_new') }}">Добавить</a>
+    {% endif %}
+{% endblock %}

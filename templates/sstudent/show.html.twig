@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ученик{% endblock %}
+
+{% block body %}
+    <h1>Ученик</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ sstudent.id }}</td>
+            </tr>
+            <tr>
+                <th>ФИО</th>
+                <td>{{ sstudent.fio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sstudent_index') }}">вернуться</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_sstudent_edit', {'id': sstudent.id}) }}">редактировать</a>
+        {{ include('sstudent/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

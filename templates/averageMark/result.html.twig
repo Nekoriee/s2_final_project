@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Успеваемость{% endblock %}
+
+{% block body %}
+
+    {% if subject_name %}
+        <h1>Успеваемость по предмету</h1>
+        <b>Успеваемость учеников по предмету {{ subject_name }}:
+        {% if mark %}
+            {{ mark }}</b>
+        {% else %}
+            неизвестно</b>
+        {% endif %}
+    {% elseif student_name %}
+        <h1>Успеваемость по ученику</h1>
+        <b>Успеваемость ученика {{ student_name }}:
+        {% if mark %}
+            {{ mark }}</b>
+        {% else %}
+            неизвестно</b>
+        {% endif %}
+    {% else %}
+        <b>Нет входных данных :c</b>
+    {% endif %}
+    <form action="/school/averageMark" method="get">
+        <input name="student" type="hidden" value="">
+        <input name="subject" type="hidden" value="">
+        <input type="submit" value="Вернуться">
+    </form>
+{% endblock %}

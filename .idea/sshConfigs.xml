@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="84.201.138.157" id="fc4a0aa8-58ec-4590-b573-b3b995c7cb4e" keyPath="C:\Other\Univer_S3\СИТ\Server\shh-key.ppk" port="22" nameFormat="DESCRIPTIVE" username="pcat" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

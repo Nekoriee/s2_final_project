@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать учителя{% endblock %}
+
+{% block body %}
+    <h1>Редактировать учителя</h1>
+
+    {{ include('steacher/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_steacher_index') }}">вернуться</a>
+
+    {{ include('steacher/_delete_form.html.twig') }}
+{% endblock %}

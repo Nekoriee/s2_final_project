@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Средняя оценка{% endblock %}
+
+{% block body %}
+    <h1>Успеваемость</h1>
+        {% if tabl_students %}
+            <b>Выбрать студента</b><br>
+            <form action="/school/averageMark" method="get">
+                <label> ФИО ученика:
+                    <select name="student">
+                        <option value="">---Выбрать---</option>
+                        {% for student in tabl_students %}
+                            {% if student %}
+                                <option value="{{ student.id }}">{{ student.fio }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </label> <br>
+                <input type="submit" value="Отправить">
+            </form>
+            <br>
+        {% else %}
+            <b>Таблица студентов пустая</b><br>
+        {% endif %}
+
+    {% if tabl_subjects %}
+        <b>Выбрать предмет</b><br>
+        <form action="/school/averageMark" method="get">
+            <label> Название предмета:
+                <select name="subject">
+                    <option value="">---Выбрать---</option>
+                    {% for subject in tabl_subjects %}
+                        {% if subject %}
+                            <option value="{{ subject.id }}">{{ subject.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </label> <br>
+            <input type="submit" value="Отправить">
+        </form>
+
+    {% else %}
+        <b>Таблица предметов пустая</b><br>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый предмет{% endblock %}
+
+{% block body %}
+    <h1>Добавить новый предмет</h1>
+
+    {{ include('ssubject/_form.html.twig') }}
+
+    <a href="{{ path('app_ssubject_index') }}">вернуться</a>
+{% endblock %}

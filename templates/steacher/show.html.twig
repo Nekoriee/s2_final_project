@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Учитель{% endblock %}
+
+{% block body %}
+    <h1>Учитель</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ steacher.id }}</td>
+            </tr>
+            <tr>
+                <th>ФИО</th>
+                <td>{{ steacher.fio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_steacher_index') }}">вернуться</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_steacher_edit', {'id': steacher.id}) }}">редактировать</a>
+
+    {{ include('steacher/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать ученика{% endblock %}
+
+{% block body %}
+    <h1>Редактировать ученика</h1>
+
+    {{ include('sstudent/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_sstudent_index') }}">вернуться</a>
+
+    {{ include('sstudent/_delete_form.html.twig') }}
+{% endblock %}

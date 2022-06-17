@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый класс{% endblock %}
+
+{% block body %}
+    <h1>Добавить новый класс</h1>
+
+    {{ include('sclass/_form.html.twig') }}
+
+    <a href="{{ path('app_sclass_index') }}">вернуться</a>
+{% endblock %}

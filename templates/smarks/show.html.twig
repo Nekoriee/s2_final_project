@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Оценка{% endblock %}
+
+{% block body %}
+    <h1>Оценка</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ smark.id }}</td>
+            </tr>
+            <tr>
+                <th>ФИО студента</th>
+                <td>{{ smark.sstudentID }}</td>
+            </tr>
+            <tr>
+                <th>Название предмета</th>
+                <td>{{ smark.ssubjectID }}</td>
+            </tr>
+            <tr>
+                <th>Оценка</th>
+                <td>{{ smark.mark }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_smarks_index') }}">вернуться</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_smarks_edit', {'id': smark.id}) }}">редактировать</a>
+
+    {{ include('smarks/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}
